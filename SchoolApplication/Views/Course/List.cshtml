@@ -1,0 +1,38 @@
+﻿@model List<SchoolApplication.Models.Course>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>All Courses registered</title>
+</head>
+<body>
+    <a style="margin: 10px" class="btn btn-success"
+       asp-controller="Course" asp-action="Add">Add Course</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th> </th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model)
+            {
+                <tr>
+                    <td>@course.Id</td>
+                    <td>@course.Name</td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="Course" asp-action="Edit" asp-route-id="@course.Id">Edit</a>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" onclick="deleteResource('/Course/Delete', @course.Id)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

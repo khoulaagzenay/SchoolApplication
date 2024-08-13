@@ -1,0 +1,44 @@
+﻿@model List<SchoolApplication.Models.Grade>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>All Grades registered</title>
+</head>
+<body>
+    <a style="margin: 10px" class="btn btn-success"
+       asp-controller="Grade" asp-action="Add">Add Grade</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Student</th>
+                <th>Course</th>
+                <th>Grade</th>
+                <th>Observation</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var grade in Model)
+            {
+                <tr>
+                    <td>@grade.Id</td>
+                    <td>@grade.Student.Name</td>
+                    <td>@grade.Course.Name</td>
+                    <td>@grade.Value</td>
+                    <td>@grade.Observation</td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="Grade" asp-action="Edit" asp-route-id="@grade.Id">Edit</a>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" onclick="deleteResource('/Grade/Delete', @grade.Id)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
