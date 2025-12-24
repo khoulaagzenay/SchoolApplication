@@ -69,5 +69,4 @@ The platform modernizes school administration by centralizing data, improving tr
 - .NET SDK (ASP.NET Core)
 - SQL Server
 - Visual Studio 
-   ```bash
-   git clone https://github.com/your-username/school-management-app.git
+
